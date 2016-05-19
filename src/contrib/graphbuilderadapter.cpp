@@ -20,7 +20,7 @@ void GraphBuilderAdapter::OnAlias(const Mark &mark, anchor_t anchor) {
 }
 
 void GraphBuilderAdapter::OnScalar(const Mark &mark, const std::string &tag,
-                                   anchor_t anchor, const std::string &value) {
+                                   anchor_t anchor, const std::string &value, bool) {
   void *pParent = GetCurrentParent();
   void *pNode = m_builder.NewScalar(mark, tag, pParent, value);
   RegisterAnchor(anchor, pNode);

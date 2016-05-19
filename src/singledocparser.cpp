@@ -89,8 +89,11 @@ void SingleDocParser::HandleNode(EventHandler& eventHandler) {
   // now split based on what kind of node we should be
   switch (token.type) {
     case Token::PLAIN_SCALAR:
+      eventHandler.OnScalar(mark, tag, anchor, token.value, false);
+      m_scanner.pop();
+      return;
     case Token::NON_PLAIN_SCALAR:
-      eventHandler.OnScalar(mark, tag, anchor, token.value);
+      eventHandler.OnScalar(mark, tag, anchor, token.value, true);
       m_scanner.pop();
       return;
     case Token::FLOW_SEQ_START:
@@ -130,7 +133,7 @@ void SingleDocParser::HandleNode(EventHandler& eventHandler) {
   if (tag == "?")
     eventHandler.OnNull(mark, anchor);
   else
-    eventHandler.OnScalar(mark, tag, anchor, "");
+    eventHandler.OnScalar(mark, tag, anchor, "", false);
 }
 
 void SingleDocParser::HandleSequence(EventHandler& eventHandler) {

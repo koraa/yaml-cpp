@@ -47,7 +47,7 @@ def scalar(value, tag='', anchor='', anchor_id=0):
         else:
             out_tag = '!'
     emit += ['"%s"' % encode(value)]
-    return {'emit': emit, 'handle': 'OnScalar(_, "%s", %s, "%s")' % (out_tag, anchor_id, encode(value))}
+    return {'emit': emit, 'handle': 'OnScalar(_, "%s", %s, "%s", _2)' % (out_tag, anchor_id, encode(value))}
 
 def comment(value):
     return {'emit': 'Comment("%s")' % value, 'handle': ''}

@@ -30,7 +30,8 @@ class EmitFromEvents : public EventHandler {
   virtual void OnNull(const Mark& mark, anchor_t anchor);
   virtual void OnAlias(const Mark& mark, anchor_t anchor);
   virtual void OnScalar(const Mark& mark, const std::string& tag,
-                        anchor_t anchor, const std::string& value);
+                        anchor_t anchor, const std::string& value,
+                        bool is_quoted);
 
   virtual void OnSequenceStart(const Mark& mark, const std::string& tag,
                                anchor_t anchor, EmitterStyle::value style);

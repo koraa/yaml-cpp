@@ -73,7 +73,7 @@ void NodeEvents::Emit(const detail::node& node, EventHandler& handler,
       handler.OnNull(Mark(), anchor);
       break;
     case NodeType::Scalar:
-      handler.OnScalar(Mark(), node.tag(), anchor, node.scalar());
+      handler.OnScalar(Mark(), node.tag(), anchor, node.scalar(), true);
       break;
     case NodeType::Sequence:
       handler.OnSequenceStart(Mark(), node.tag(), anchor, node.style());

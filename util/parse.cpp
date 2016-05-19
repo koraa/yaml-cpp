@@ -26,7 +26,7 @@ class NullEventHandler : public YAML::EventHandler {
   virtual void OnNull(const YAML::Mark&, YAML::anchor_t) {}
   virtual void OnAlias(const YAML::Mark&, YAML::anchor_t) {}
   virtual void OnScalar(const YAML::Mark&, const std::string&, YAML::anchor_t,
-                        const std::string&) {}
+                        const std::string&, bool) {}
 
   virtual void OnSequenceStart(const YAML::Mark&, const std::string&,
                                YAML::anchor_t) {}
